@@ -3,100 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to My World</title>
+  <title>Visionary</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --primary: #2a2a72;
+      --accent: #00c9a7;
+      --light: #f5f5f5;
+      --dark: #1a1a1a;
     }
 
-    body, html {
-      font-family: 'Segoe UI', sans-serif;
-      height: 100%;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
       scroll-behavior: smooth;
     }
 
     header {
-      background: url('https://source.unsplash.com/800x600/?nature,tech') center center / cover no-repeat;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      background: linear-gradient(to right, var(--primary), #4b6cb7);
       color: white;
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
     header h1 {
       font-size: 3em;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 20px;
-      border-radius: 10px;
-      animation: fadeIn 2s ease-in-out;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
     }
 
     nav {
-      background-color: #0077cc;
-      padding: 10px;
-      text-align: center;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     nav a {
-      color: white;
-      margin: 0 15px;
+      color: var(--primary);
+      margin: 0 20px;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s;
+      position: relative;
     }
 
-    nav a:hover {
-      color: #ffee55;
+    nav a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: var(--accent);
+      width: 0;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     section {
       padding: 60px 20px;
-      text-align: center;
-    }
-
-    .feature {
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
-      background: #f9f9f9;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 30px;
-      animation: slideIn 1.5s ease;
     }
 
-    .feature h2 {
-      color: #0077cc;
-      margin-bottom: 15px;
+    section h2 {
+      color: var(--primary);
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .svg-showcase {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .svg-showcase svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 30px;
+      margin-bottom: 40px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
     }
 
     footer {
-      background: #333;
-      color: #fff;
+      background: var(--primary);
+      color: white;
       text-align: center;
-      padding: 20px;
+      padding: 30px 20px;
+      margin-top: 40px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       header h1 {
         font-size: 2em;
       }
-
-      .feature {
-        padding: 20px;
+      nav {
+        flex-direction: column;
+        gap: 10px;
       }
     }
   </style>
@@ -104,38 +137,61 @@
 <body>
 
   <header>
-    <h1>Welcome to My Creative Space</h1>
+    <h1>Visionary</h1>
+    <p>Crafting high-impact digital experiences with HTML5, CSS3 & SVG</p>
   </header>
 
   <nav>
     <a href="#about">About</a>
-    <a href="#projects">Projects</a>
+    <a href="#features">Features</a>
+    <a href="#svg">SVG Art</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <section id="about">
-    <div class="feature">
-      <h2>About This Page</h2>
-      <p>This webpage was built entirely using an iPhone and features responsive design, modern animation, and mobile-friendly styling — no desktop required!</p>
+    <div class="card">
+      <h2>About</h2>
+      <p>This is a modern HTML5-based webpage, professionally styled with CSS3 and animated SVG. Perfect for portfolios, landing pages, or startup showcases — all fully mobile-optimised and built without frameworks.</p>
     </div>
   </section>
 
-  <section id="projects">
-    <div class="feature">
-      <h2>Cool Projects</h2>
-      <p>Imagine this space highlighting GitHub repos, creative work, or apps — brought to life with beautiful visual transitions and sleek code.</p>
+  <section id="features">
+    <div class="card">
+      <h2>Features</h2>
+      <ul>
+        <li>✅ Mobile-first responsive design</li>
+        <li>✅ Clean HTML5 semantics</li>
+        <li>✅ Elegant CSS3 transitions and layout</li>
+        <li>✅ Built-in scalable SVG graphics</li>
+        <li>✅ Deployed entirely from iPhone</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="svg">
+    <div class="card svg-showcase">
+      <h2>SVG Animation</h2>
+      <svg width="200" height="200" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="40" stroke="#00c9a7" stroke-width="4" fill="none">
+          <animate attributeName="r" values="40;10;40" dur="3s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="50" cy="50" r="6" fill="#00c9a7">
+          <animate attributeName="r" values="6;20;6" dur="2s" repeatCount="indefinite" />
+        </circle>
+      </svg>
+      <p>Dynamic, scalable vector graphics using inline SVG and animation.</p>
     </div>
   </section>
 
   <section id="contact">
-    <div class="feature">
-      <h2>Get In Touch</h2>
-      <p>Reach out via email or add a contact form here. Let this section guide users toward working with you or following your content.</p>
+    <div class="card">
+      <h2>Contact</h2>
+      <p>To customise this page, connect your form service, or embed email logic.</p>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Created by You | Built with 💙 on an iPhone
+    &copy; 2025 Visionary • Built with HTML5, CSS3, and SVG • Powered by iPhone
   </footer>
 
 </body>
