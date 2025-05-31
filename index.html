@@ -3,107 +3,140 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Mobile Webpage</title>
+  <title>Welcome to My World</title>
   <style>
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f0f0;
-      margin: 0;
-      padding: 20px;
+    body, html {
+      font-family: 'Segoe UI', sans-serif;
+      height: 100%;
+      scroll-behavior: smooth;
     }
 
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: white;
+    header {
+      background: url('https://source.unsplash.com/800x600/?nature,tech') center center / cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 3em;
+      background: rgba(0, 0, 0, 0.4);
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      animation: fadeIn 2s ease-in-out;
     }
 
-    h1 {
-      color: #0077cc;
-      text-align: center;
-    }
-
-    p {
-      color: #333;
-      text-align: center;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    label {
-      font-weight: bold;
-    }
-
-    input, textarea {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1em;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    button {
+    nav {
       background-color: #0077cc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
       color: white;
-      border: none;
-      padding: 12px;
-      font-size: 1em;
-      border-radius: 5px;
-      cursor: pointer;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
     }
 
-    button:hover {
-      background-color: #005fa3;
+    nav a:hover {
+      color: #ffee55;
     }
 
-    @media (max-width: 480px) {
-      body {
-        padding: 10px;
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .feature {
+      max-width: 800px;
+      margin: auto;
+      background: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 30px;
+      animation: slideIn 1.5s ease;
+    }
+
+    .feature h2 {
+      color: #0077cc;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
       }
 
-      .container {
-        padding: 15px;
-      }
-
-      input, textarea, button {
-        font-size: 1em;
+      .feature {
+        padding: 20px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome to My Mobile Webpage</h1>
-    <p>This page is built entirely on an iPhone. It includes a responsive contact form you can use to get in touch!</p>
 
-    <form action="mailto:your@email.com" method="POST" enctype="text/plain">
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required />
+  <header>
+    <h1>Welcome to My Creative Space</h1>
+  </header>
 
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required />
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required></textarea>
+  <section id="about">
+    <div class="feature">
+      <h2>About This Page</h2>
+      <p>This webpage was built entirely using an iPhone and features responsive design, modern animation, and mobile-friendly styling — no desktop required!</p>
+    </div>
+  </section>
 
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
+  <section id="projects">
+    <div class="feature">
+      <h2>Cool Projects</h2>
+      <p>Imagine this space highlighting GitHub repos, creative work, or apps — brought to life with beautiful visual transitions and sleek code.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="feature">
+      <h2>Get In Touch</h2>
+      <p>Reach out via email or add a contact form here. Let this section guide users toward working with you or following your content.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Created by You | Built with 💙 on an iPhone
+  </footer>
+
 </body>
 </html>
